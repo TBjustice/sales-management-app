@@ -1,0 +1,316 @@
+html{
+  --card-size: 18rem;
+  --card-header-size: 2rem;
+  --card-price-size: 1.5rem;
+}
+
+body {
+  font-size: 15pt;
+  margin: 0;
+  padding: 0;
+}
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box
+}
+
+/* Navigation */
+
+nav.main-nav {
+  position: absolute;
+  width: 100%;
+  height: 5rem;
+  bottom: 0px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  background: #faf8ee;
+  user-select: none;
+}
+
+nav.main-nav>div {
+  flex: 1;
+  text-align: center;
+}
+
+nav.main-nav .nav-icon {
+  padding: 0.5rem 2rem;
+  border-radius: 1.5rem;
+}
+
+nav.main-nav>div.active .nav-icon {
+  background: #ffdac4;
+}
+
+nav.main-nav .nav-text {
+  font-size: 0.8rem;
+}
+
+@media (orientation: landscape) {
+  nav.main-nav {
+    width: 5rem;
+    height: 100%;
+    flex-flow: column;
+  }
+
+  nav.main-nav>div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  nav.main-nav .nav-icon {
+    padding: 0.5rem 0.5rem;
+    border-radius: 1.5rem;
+  }
+}
+
+/* Main */
+
+main {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 5rem;
+  overflow: auto;
+}
+
+
+@media (orientation: landscape) {
+  main {
+    width: auto;
+    height: 100%;
+    left: 5rem;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+button {
+  height: 3rem;
+  border: none;
+  border-radius: 1.5rem;
+  background-color: rgb(59, 160, 0);
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  gap: 1rem;
+}
+
+button.disable {
+  background-color: rgb(87, 87, 87);
+  color: rgb(155, 155, 155);
+}
+
+div.text-button{
+  height: 3rem;
+  line-height: 3rem;
+  color: rgb(26, 83, 0);
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+main>header{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5.5rem;
+  font-size: 3rem;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #ddd;
+}
+main>div.content{
+  position: absolute;
+  overflow-y: auto;
+  top: 5.5rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* Main(Home) */
+
+header.home {
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+header.home>.home-sum-money {
+  font-size: 3rem;
+  margin-right: auto;
+}
+
+header.home>.home-sum-money .optional {
+  display: none;
+}
+
+@media (orientation: landscape) {
+  header.home>.home-sum-money .optional {
+    display: inline;
+  }
+}
+
+.home.reset-button{
+  display: inline-block;
+  margin: 1rem 1rem 0  1rem;
+  color: rgb(26, 83, 0);
+  font-weight: bolder;
+  cursor: pointer;
+  user-select: none;
+}
+
+
+div.item-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, var(--card-size));
+  padding: 1rem;
+  gap: 1rem;
+  width: 100%;
+}
+
+
+div.item-card {
+  position: relative;
+  padding: 0.5rem;
+  box-shadow: 0 0 3px -0.5px black;
+  aspect-ratio: 16 / 9;
+  user-select: none;
+}
+div.item-card.active {
+  background-color: #a3e4a7;
+}
+
+div.item-card>header {
+  font-size: var(--card-header-size);
+}
+div.item-card>p.detail {
+  color: #666;
+  font-size: 0.8rem;
+  margin: 0;
+}
+div.item-card>div.price {
+  position: absolute;
+  font-size: var(--card-price-size);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.5rem;
+}
+
+/* Main(History) */
+
+div.history.history-list{
+  position: absolute;
+  overflow-y: auto;
+  top: 5.5rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 1rem;
+}
+
+input.history-item{
+  display: none;
+}
+
+label.history-item{
+  display: flex;
+  flex-flow: row wrap;
+  padding: 1rem 0.5rem;
+  user-select: none;
+}
+label.history-item div{
+  font-size: 1.5rem;
+  text-wrap: nowrap;
+  margin-right: 2rem;
+}
+
+div.history-item{
+  max-height: 0px;
+  overflow: hidden;
+  border-bottom: 1px solid black;
+}
+div.history-item ul{
+  margin: 0;
+}
+div.history-item div.edit-button{
+  display: inline-block;
+  padding: 1rem;
+  color: rgb(26, 83, 0);
+  font-weight: bolder;
+  cursor: pointer;
+  user-select: none;
+}
+input.history-item:checked+label+div{
+  max-height: 100vh;
+}
+
+div.history.history-edit{
+  position: absolute;
+  overflow-y: auto;
+  top: 5.5rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  transform-origin: 50%, 50%;
+  transform: scale(0);
+  overflow: hidden;
+  transition-duration: 0.5s;
+  border: none;
+}
+div.history.history-edit.active{
+  transform: scale(1);
+  border: 1px solid black;
+}
+div.history.history-edit > header{
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 0.5rem;
+}
+div.history.history-edit > menu{
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  margin: 0;
+  padding: 0.5rem;
+}
+div.history.history-edit > menu > div.cancel-btn{
+  height: 3rem;
+  line-height: 3rem;
+  color: rgb(26, 83, 0);
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+/* Main(Settings) */
+.settings.content>details{
+  margin: 1rem;
+  border-bottom: 1px solid #666;
+}
+.settings.content>details summary{
+  font-size: 1.5rem;
+  padding: 1rem 0;
+}
+
+.settings.content .item-info-table{
+  display: grid;
+  grid-template-columns: 15rem 8rem 1fr 4rem;
+}
+
+.settings.content .item-info-table>header{
+  font-weight: bold;
+}
+.settings.content .item-info-table .edit-btn{
+  color: rgb(26, 83, 0);
+  cursor: pointer;
+}
