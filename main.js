@@ -31,10 +31,10 @@
       data={
         'storeId':0,
         'stores':[{
-          'name':'きらら',
-          'items': [new Item('ごちうさ', 'ココ×チノ', 400),
-          new Item('ぼざろ', 'ぼっち総受け', 200),
-          new Item('New Game', '小悪魔青葉', 600)],
+          'name':'ストアの名前',
+          'items': [new Item('商品名1', '商品の説明', 400),
+          new Item('商品名2', '商品の説明', 200),
+          new Item('商品名3', '商品の説明', 600)],
           'history': []
         }]
       }
@@ -299,7 +299,7 @@
       lebelElement.classList.add('history-item');
       lebelElement.setAttribute('for', 'history-item-check-'+id);
       let labelText = '<div>';
-      labelText += '時刻：'+time.getDate()+'月'+time.getDay()+'日';
+      labelText += '時刻：'+(time.getMonth() + 1)+'月'+time.getDate()+'日';
       labelText += ''+time.getHours()+'時'+time.getMinutes()+'分';
       labelText += '</div><div>';
       labelText += '金額：&yen' + record.sum;
