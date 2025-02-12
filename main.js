@@ -3,24 +3,21 @@
   // Add event listener to navigation menu
   function initNavigation() {
     const mainItems = document.querySelectorAll('body>main');
-    const navItems = document.querySelectorAll('nav.main-nav>div');
+    const navItems = document.querySelectorAll('nav.main-nav>button');
     for (const navItem of navItems) {
       navItem.addEventListener('click', (e) => {
-        for (const navItem of navItems) {
-          navItem.classList.remove('active');
-        }
+        document.querySelector('nav.main-nav>button.active').classList.remove('active');
         const clicked = e.currentTarget;
         clicked.classList.add('active');
         const target = clicked.dataset.target;
         for (const mainItem of mainItems) {
-          if (mainItem.id == target) mainItem.hidden = false;
+          if (mainItem.id === target) mainItem.hidden = false;
           else mainItem.hidden = true;
         }
-      })
+      });
     }
   }
   initNavigation();
-
 
   // Save / Load Data
 

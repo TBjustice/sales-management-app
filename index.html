@@ -12,13 +12,34 @@
 </head>
 
 <body>
+  <nav class="main-nav">
+    <button class="active" data-target="main-home">
+      <div>
+        <div><span class="material-symbols-outlined nav-icon">home</span></div>
+        <div class="nav-text">Home</div>
+      </div>
+    </button>
+    <button data-target="main-history">
+      <div>
+        <div><span class="material-symbols-outlined nav-icon">history</span></div>
+        <div class="nav-text">History</div>
+      </div>
+    </button>
+    <button data-target="main-settings">
+      <div>
+        <div><span class="material-symbols-outlined nav-icon">settings</span></div>
+        <div class="nav-text">Settings</div>
+      </div>
+    </button>
+  </nav>
+
   <main id="main-home">
     <header class="home">
       <div class="home-sum-money">
         <span class="optional">合計金額</span>
         &yen;<span class="home-sum-money-number">0</span>
       </div>
-      <button class="home price-check disable">
+      <button class="primary home price-check disable">
         <span class="material-symbols-outlined">price_check</span>
         入金確定
       </button>
@@ -91,29 +112,6 @@
       </details>
     </div>
   </main>
-  <nav class="main-nav">
-    <div class="active" data-target="main-home">
-      <div>
-        <span class="material-symbols-outlined nav-icon">home</span>
-        <br />
-        <span class="nav-text">Home</span>
-      </div>
-    </div>
-    <div data-target="main-history">
-      <div>
-        <span class="material-symbols-outlined nav-icon">history</span>
-        <br />
-        <span class="nav-text">History</span>
-      </div>
-    </div>
-    <div data-target="main-settings">
-      <div>
-        <span class="material-symbols-outlined nav-icon">settings</span>
-        <br />
-        <span class="nav-text">Settings</span>
-      </div>
-    </div>
-  </nav>
   <script src="main.js"></script>
 </body>
 
