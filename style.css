@@ -42,8 +42,8 @@ nav.main-nav>button {
   text-align: center;
 }
 
-nav.main-nav>button:hover {
-  background-color: #ffeae4;
+nav.main-nav>button:hover, nav.main-nav>button:focus{
+  background-color: #ffebdf;
 }
 
 nav.main-nav .nav-icon {
@@ -52,7 +52,7 @@ nav.main-nav .nav-icon {
 }
 
 nav.main-nav>button.active .nav-icon {
-  background: #ffdac4;
+  background: #fccbaf;
 }
 
 nav.main-nav .nav-text {
@@ -114,8 +114,11 @@ button.primary {
   cursor: pointer;
   gap: 1rem;
 }
+button.primary:focus{
+  outline: 2px solid black;
+}
 
-button.disable {
+button:disabled {
   background-color: rgb(87, 87, 87);
   color: rgb(155, 155, 155);
 }

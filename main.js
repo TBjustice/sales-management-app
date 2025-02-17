@@ -8,6 +8,7 @@
       navItem.addEventListener('click', (e) => {
         document.querySelector('nav.main-nav>button.active').classList.remove('active');
         const clicked = e.currentTarget;
+        clicked.blur();
         clicked.classList.add('active');
         const target = clicked.dataset.target;
         for (const mainItem of mainItems) {
@@ -212,7 +213,7 @@
       sum.innerText = Home.sum;
       const counter = card.querySelector('span.buy-count');
       counter.innerText = '' + Home.itemCounts[id];
-      Home.okBtn.classList.remove('disable');
+      Home.okBtn.disabled = false;
     },
     addItemElement: function (id, name, detail, price) {
       const testItem = createItemCardElement(id, name, detail, price);
@@ -224,7 +225,7 @@
       Home.itemCounts = [];
       const sum = document.querySelector('#main-home .home-sum-money-number');
       sum.innerText = '0';
-      Home.okBtn.classList.add('disable');
+      Home.okBtn.disabled = true;
       Home.itemList.innerHTML = '';
       const items = Store.items;
       items.forEach((item, id) => {
@@ -241,7 +242,7 @@
         Home.reset();
       });
       Home.okBtn.addEventListener('click', (e) => {
-        if(Home.okBtn.classList.contains('disable'))return;
+        if(Home.okBtn.disabled)return;
         Store.assignHistory({
           time: Date.now(),
           sum: Home.sum,
